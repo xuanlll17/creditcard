@@ -71,7 +71,7 @@ with open('pos.csv', 'w', newline='', encoding='utf-8') as file:
 #各產業別消費樣態資料(V)
 #'''產業類別代碼【FD: 食品餐飲類, CT: 服飾類, LG: 住宿類, TR: 交通類, EE: 文教康樂類, DP: 百貨類, X2: #無產業, OT: 其他類, ALL: 全部產業, IDSUM: 各產業類】'''
 
-#industry = ['FD', 'CT', 'LG', 'TR', 'EE', 'DP', 'X2', 'OT', ' IDSUM', 'ALL']
+industry = ['FD', 'CT', 'LG', 'TR', 'EE', 'DP', 'X2', 'OT', ' IDSUM', 'ALL']
 #for B in industry :
     #industry_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/B01/Industry/{B}"   
     #response_industry = requests.request("GET",industry_url)
@@ -85,12 +85,12 @@ with open('pos.csv', 'w', newline='', encoding='utf-8') as file:
 
 
 #
-#for C in industry:
-	#sexSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C01/sexconsumption/TWN/{C}"   
-	#response_sexSum = requests.request("GET",sexSum_url)
-	#with open(f'sexSum_{C}.csv', 'wb') as file:
-		#file.write(response_sexSum.content)
-		#file.close()
+for C in industry:
+	sexSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C01/sexconsumption/TWN/{C}"   
+	response_sexSum = requests.request("GET",sexSum_url)
+	with open(f'sexSum_{C}.csv', 'wb') as file:
+		file.write(response_sexSum.content)
+		file.close()
 
 #各職業類別消費樣態資料(V)
 #jobSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C04/jobsconsumption/TWN/ALL"   
