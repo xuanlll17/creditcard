@@ -16,14 +16,13 @@ with open('cards.csv', 'wb') as file:
 	file.write(response_cards.content)
 	file.close()
 
-#本中心簽帳端末機裝機臺數資料(V)
-pos = "https://bas.nccc.com.tw/nccc-nop/OpenAPI/A04/NumberPOS"   
+#本中心簽帳端末機裝機臺數資料(V) #標題會出現亂碼
+pos = "https://bas.nccc.com.tw/nccc-nop/OpenAPI/A04/NumberPOS"
 response_pos = requests.request("GET",pos)
-response_pos.encoding = 'utf-8'
-with open('pos.csv', 'w', newline='', encoding='utf-8') as file:
-	file.write(response_pos.text)
-	print('成功保存')
-	file.close()
+data = response_pos.text
+with open("pos.csv", "w", newline= '', encoding="utf-8") as file:
+    file.write(data)
+file.close()
 
 
 #本中心特約商店型態及比例資料(V)
