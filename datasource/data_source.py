@@ -1,5 +1,6 @@
 import requests
 import csv
+import json
 
 #處理中心金額及筆數資料(V)
 sales_url = "https://bas.nccc.com.tw/nccc-nop/OpenAPI/A02/SalesVolumeand"   
@@ -18,8 +19,9 @@ with open('cards.csv', 'wb') as file:
 #本中心簽帳端末機裝機臺數資料(V)
 pos = "https://bas.nccc.com.tw/nccc-nop/OpenAPI/A04/NumberPOS"   
 response_pos = requests.request("GET",pos)
+data = response_pos.json()
 with open('pos.csv', 'wb') as file:
-	file.write(response_pos.content)
+	json.dump(data)
 	file.close()
 
 
@@ -82,11 +84,12 @@ for B in industry :
 
 
 #
-sexSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C01/sexconsumption/TWN/{C}"   
-response_sexSum = requests.request("GET",sexSum_url)
-with open(f'sexSum_{C}.csv', 'wb') as file:
-	file.write(response_sexSum.content)
-	file.close()
+for C in industry:
+	sexSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C01/sexconsumption/TWN/{C}"   
+	response_sexSum = requests.request("GET",sexSum_url)
+	with open(f'sexSum_{C}.csv', 'wb') as file:
+		file.write(response_sexSum.content)
+		file.close()
 
 #各職業類別消費樣態資料(V)
 jobSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C04/jobsconsumption/TWN/ALL"   
