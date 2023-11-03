@@ -22,7 +22,7 @@ response_pos = requests.request("GET",pos)
 data = response_pos.text
 with open("pos.csv", "w", newline= '', encoding="utf-8") as file:
     file.write(data)
-file.close()
+
 
 
 #本中心特約商店型態及比例資料(V)
