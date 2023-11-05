@@ -81,12 +81,13 @@ for B in industry :
         file.close()
 
 #兩性消費
-for C in industry:
-	sexSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C01/sexconsumption/TWN/{C}"   
-	response_sexSum = requests.request("GET",sexSum_url)
-	with open(f'sexSum_{C}.csv', 'wb') as file:
-		file.write(response_sexSum.content)
-		file.close()
+for C in industry :
+    sexSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C01/sexconsumption/TWN/{C}"   
+    response_sexSum = requests.request("GET",sexSum_url)
+    if len(response_sexSum.text) == 0:
+        continue
+    with open(f'sexSum_{C}.csv', 'wb') as file:
+        file.write(response_sexSum.content)
 
 #各職業類別消費樣態資料(V)
 jobSum_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C04/jobsconsumption/TWN/ALL"   
