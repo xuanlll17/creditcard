@@ -7,34 +7,7 @@ import pandas as pd
 
 # ---------下載資料---------#
 def __download_credit_data() -> csv:
-    area = [
-        "KLC",
-        "TPE",
-        "NTP",
-        "TYC",
-        "HCC",
-        "HCH",
-        "MLH",
-        "TCC",
-        "CHH",
-        "NTH",
-        "YUH",
-        "CYC",
-        "CYH",
-        "TNC",
-        "KHC",
-        " PTH",
-        "TTH",
-        "HLH",
-        "YIH",
-        "PHH",
-        "KMH",
-        "LCH",
-        "X1",
-        " LCSUM",
-        "MCT",
-        "LOC",
-    ]
+    area = ['KLC', 'TPE', 'NTP', 'TYC', 'HCC', 'HCH', 'MLH', 'TCC', 'CHH', 'NTH', 'YUH', 'CYC', 'CYH', 'TNC', 'KHC',' PTH', 'TTH', 'HLH', 'YIH', 'PHH', 'KMH', 'LCH', 'X1',' LCSUM', 'MCT', 'LOC']
 
     industry = ["FD", "CT", "LG", "TR", "EE", "DP", "X2", "OT", " IDSUM", "ALL"]
     DataType = ["sex", "job", "incom", "education", "age"]
