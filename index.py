@@ -317,7 +317,6 @@ class Window(tk.Tk):
         table = self.data_mapping.get(selected_option)
         conn = sqlite3.connect("creditcard.db")
 
-        # Initialize fig and ax
         fig, ax = plt.subplots(figsize=(3.85, 3))
         fig.subplots_adjust(bottom=0.1, top=0.9)
         if (
@@ -421,19 +420,18 @@ class Window(tk.Tk):
             )
             ax.set_title(f"各{selected_option}信用卡交易金額分布")
 
-        # Create the canvas for the chart if it doesn't exist
+        # ------create canvas------#
         if not hasattr(self, "canvas_pie_chart"):
             self.canvas_pie_chart = FigureCanvasTkAgg(fig, master=self.bottomFrame1)
             canvas_widget = self.canvas_pie_chart.get_tk_widget()
             canvas_widget.pack(side=tk.TOP, fill=tk.BOTH, expand=1, padx=5, pady=5)
+        # ------update canvas content------#
         else:
-            # Update the content of the existing canvas
             self.canvas_pie_chart.get_tk_widget().destroy()
             self.canvas_pie_chart = FigureCanvasTkAgg(fig, master=self.bottomFrame1)
             canvas_widget = self.canvas_pie_chart.get_tk_widget()
             canvas_widget.pack(side=tk.TOP, fill=tk.BOTH, expand=1, padx=5, pady=5)
 
-        # Show the chart
         self.canvas_pie_chart.draw()
 
     # ------------長條圖------------#
@@ -442,12 +440,10 @@ class Window(tk.Tk):
         table = self.data_mapping.get(selected_option)
         conn = sqlite3.connect("creditcard.db")
 
-        # Initialize fig and ax
         fig, ax = plt.subplots(figsize=(5, 3))
         fig.subplots_adjust(bottom=0.1, top=0.9)
 
         if selected_option != "年齡層":
-            # Your SQL query
             sql = f"SELECT 產業別,{selected_option}, SUM(信用卡金額) AS 信用卡交易總金額 FROM {table} GROUP BY 產業別,{selected_option}"
             df = pd.read_sql_query(sql, conn)
             df_pivot = df.pivot(
@@ -502,23 +498,21 @@ class Window(tk.Tk):
             ax.set_title(f"各{selected_option}與產業別信用卡交易金額占比", pad=3)
         ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
         ax.set_ylabel("信用卡交易總金額")
-        # 設置 x 和 y 軸標籤的字體大小
         ax.tick_params(axis="x", labelsize=10)
         ax.tick_params(axis="y", labelsize=10)
 
-        # Create the canvas for the chart if it doesn't exist
+        # ------create canvas------#
         if not hasattr(self, "canvas_bar_chart"):
             self.canvas_bar_chart = FigureCanvasTkAgg(fig, master=self.bottomFrame2)
             canvas_widget = self.canvas_bar_chart.get_tk_widget()
             canvas_widget.pack(side=tk.TOP, fill=tk.BOTH, expand=1, padx=5, pady=5)
+        # ------update canvas content------#
         else:
-            # Update the content of the existing canvas
             self.canvas_bar_chart.get_tk_widget().destroy()
             self.canvas_bar_chart = FigureCanvasTkAgg(fig, master=self.bottomFrame2)
             canvas_widget = self.canvas_bar_chart.get_tk_widget()
             canvas_widget.pack(side=tk.TOP, fill=tk.BOTH, expand=1, padx=5, pady=5)
 
-        # Show the chart
         self.canvas_bar_chart.draw()
 
     def selectedItem(self, event):
