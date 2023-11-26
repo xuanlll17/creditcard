@@ -5,6 +5,7 @@ import sqlite3
 from tkinter.simpledialog import Dialog
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import data
 
 
 class Window(tk.Tk):
@@ -570,6 +571,7 @@ class ShowDetail(Dialog):
 
 
 def main():
+    data.csv_to_database()
     def on_closing():
         print("window關閉")
         if hasattr(window, "canvas_line_chart"):

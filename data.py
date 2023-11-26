@@ -62,7 +62,7 @@ def __download_credit_data() -> csv:
     industry = ["FD", "CT", "LG", "TR", "EE", "DP", "X2", "OT", " IDSUM", "ALL"]
     DataType = ["sex", "job", "incom", "education", "age"]
     sex = ["M", "F"]
-    sex_code = {"1":"男性", "2":"女性"}
+    sex_code = {"1": "男性", "2": "女性"}
 
     # 兩性消費
     for A in industry:
@@ -157,16 +157,16 @@ def __download_credit_data() -> csv:
                     # 使用get方法，如果找不到對應的鍵，就保持原來的值
                     row["地區"] = area_code.get(row["地區"], row["地區"])
 
-                    if '性別' in fieldnames:
-                        row['性別'] = sex_code.get(row["性別"], row["性別"])
-                
+                    if "性別" in fieldnames:
+                        row["性別"] = sex_code.get(row["性別"], row["性別"])
+
                     year = row["年月"][:4]
                     month = row["年月"][4:]
                     new_row = {"年": year, "月": month, "地區": row["地區"]}
 
-                    if '性別' in fieldnames:
-                        new_row['性別'] = row['性別']
-                
+                    if "性別" in fieldnames:
+                        new_row["性別"] = row["性別"]
+
                     new_row.update(row)
                     del new_row["年月"]
                     csv_writer.writerow(new_row)
@@ -175,7 +175,9 @@ def __download_credit_data() -> csv:
 
 
 # ---------輸入資料---------#
-def csv_to_database(conn: sqlite3.Connection) -> None:
+def csv_to_database() -> None:
+    __download_credit_data()
+    conn = sqlite3.connect("creditcard.db")
     DataType = ["sex", "job", "incom", "education", "age"]
     for item in DataType:
         file = f"./{item}_trans.csv"
@@ -187,11 +189,3 @@ def csv_to_database(conn: sqlite3.Connection) -> None:
     conn.close()
 
 
-def main() -> None:
-    __download_credit_data()
-    conn = sqlite3.connect("creditcard.db")
-    csv_to_database(conn)
-
-
-if __name__ == "__main__":
-    main()
