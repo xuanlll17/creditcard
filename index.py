@@ -494,9 +494,9 @@ class Window(tk.Tk):
             df_pivot.plot(kind="bar", stacked=True, ax=ax, cmap="viridis", legend=False)
 
         if selected_option == "教育程度類別":
-            ax.set_title(f"各教育程度與產業別信用卡交易金額占比", pad=3)
+            ax.set_title(f"各教育程度與產業別信用卡交易金額佔比", pad=3)
         else:
-            ax.set_title(f"各{selected_option}與產業別信用卡交易金額占比", pad=3)
+            ax.set_title(f"各{selected_option}與產業別信用卡交易金額佔比", pad=3)
         ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
         ax.set_ylabel("信用卡交易總金額")
         ax.tick_params(axis="x", labelsize=10)
