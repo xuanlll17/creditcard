@@ -574,7 +574,7 @@ class ShowDetail(Dialog):
 
 
 def main():
-    #data.csv_to_database()
+    data.csv_to_database()
     def on_closing():
         print("window關閉")
         if hasattr(window, "canvas_line_chart"):
