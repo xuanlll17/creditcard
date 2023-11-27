@@ -75,7 +75,6 @@ def __download_credit_data() -> csv:
                 continue
             with open(f"./datasource/sex/sex{B}_{A}.csv", "wb") as file:
                 file.write(response_sex.content)
-                file.close()
     print("性別消費資料讀取成功")
 
     # 各職業類別消費樣態資料
@@ -89,7 +88,6 @@ def __download_credit_data() -> csv:
                 continue
             with open(f"./datasource/job/job{F}_{E}.csv", "wb") as file:
                 file.write(response_job.content)
-                file.close()
     print("職業類別消費資料讀取成功")
 
     # 各年收入族群消費樣態資料(V)
@@ -101,7 +99,6 @@ def __download_credit_data() -> csv:
                 continue
             with open(f"./datasource/incom/incom{H}_{G}.csv", "wb") as file:
                 file.write(response_incom.content)
-                file.close()
     print("收入類別消費資料讀取成功")
 
     # 各教育程度消費樣態資料(V)
@@ -113,7 +110,6 @@ def __download_credit_data() -> csv:
                 continue
             with open(f"./datasource/education/education{J}_{I}.csv", "wb") as file:
                 file.write(response_education.content)
-                file.close()
     print("教育程度資料讀取成功")
 
     # 兩性X各年齡層消費
@@ -129,7 +125,6 @@ def __download_credit_data() -> csv:
                 file_path = os.path.join(folder_path, file_name)
                 with open(file_path, "wb") as file:
                     file.write(response_age.content)
-                    file.close()
     print("年齡層消費資料讀取成功")
 
     # ---------合併csv---------#
