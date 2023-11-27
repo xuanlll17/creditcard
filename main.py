@@ -463,7 +463,7 @@ class Window(tk.Tk):
                     stacked=True,
                     ax=ax,
                     legend=False,
-                    color=["#1f77b4", "#ff7f0e"],
+                    color=["#ff7f0e","#1f77b4"],
                 )
 
         elif selected_option == "年齡層":
@@ -574,7 +574,7 @@ class ShowDetail(Dialog):
 
 
 def main():
-    data.csv_to_database()
+    #data.csv_to_database()
     def on_closing():
         print("window關閉")
         if hasattr(window, "canvas_line_chart"):
