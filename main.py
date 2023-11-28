@@ -524,10 +524,11 @@ class Window(tk.Tk):
 
     def selectedItem(self, event):
         selected_item = self.treeview.focus()
-        data_dict = self.treeview.item(selected_item)
-        data_list = data_dict["values"]
-        if data_list:
+        data_dict = self.treeview.item(selected_item)  #取得選取資料的內容,並儲存在data_dict中
+        data_list = data_dict["values"]  #取出data_dict["values"]中的資料
+        if data_list:  #當data_list有值,就執行以下程式碼
             #index = self.treeview.index(selected_item)
+            #將值傳給ShowDetail,ShowDetail(parent, columns, data)[必須], title[選擇]
             ShowDetail(self, self.treeview["columns"], data_list, title="資訊")
 
     def display_data(self, data):
@@ -561,7 +562,7 @@ class ShowDetail(Dialog):
 
         try:
             #self.columns->欄位名稱, self.data->與欄位名稱對應的數值
-            #zip->用於將self.columns和self.data中的元素一一配對
+            #zip->將多個list對應的位置串起來
             for col, value in zip(self.columns, self.data):
                 dataInfo = tk.Label(master, text=f"{col}:  {value}", font=("Microsoft JhengHei", 10, "bold"))
                 dataInfo.pack(pady=(6,1), anchor="nw")
