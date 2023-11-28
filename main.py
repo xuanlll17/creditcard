@@ -145,7 +145,7 @@ class Window(tk.Tk):
         )
         self.industry.grid(row=4, column=1, padx=10, pady=10)
 
-        #state="active"->按鈕可以點擊,command按鈕被點擊時呼叫self.load_treeview
+        #state="active"->按鈕可以點擊,command按鈕被點擊時執行self.load_treeview
         self.botton = tk.Button(
             topFrame, text="搜尋", state="active", command=self.load_treeview, width=30
         ).grid(row=5, column=0, padx=10, pady=20, columnspan=2)
@@ -181,7 +181,7 @@ class Window(tk.Tk):
         )
 
         # ------Bind------#
-        #將事件綁定方法,"<ButtonRelease-1>"->左鍵點擊/"<ButtonRelease-3>"右鍵點擊,呼叫self.selectedItem
+        #將事件綁定方法,"<ButtonRelease-1>"->左鍵點擊/"<ButtonRelease-3>"右鍵點擊,執行self.selectedItem
         self.treeview.bind("<ButtonRelease-1>", self.selectedItem)
 
     # ------------treeview------------#
@@ -225,6 +225,7 @@ class Window(tk.Tk):
         table = self.data_mapping.get(selected_option)
         conn = sqlite3.connect("creditcard.db")
 
+        #
         fig, ax = plt.subplots(figsize=(5, 3))
         fig.subplots_adjust(bottom=0.1, top=0.9)
 
@@ -530,7 +531,7 @@ class Window(tk.Tk):
             ShowDetail(self, self.treeview["columns"], data_list, title="資訊")
 
     def display_data(self, data):
-        self.treeview.delete(*self.treeview.get_children())
+        self.treeview.delete(*self.treeview.get_children())  #顯示新資料前清空treeview現有資料
 
         if not data.empty:
             columns = list(data.columns)
@@ -590,8 +591,8 @@ def main():
         window.destroy()
 
     window = Window()
-    window.protocol("WM_DELETE_WINDOW", on_closing)
-    window.resizable(width=False, height=False)
+    window.protocol("WM_DELETE_WINDOW", on_closing)  #關閉視窗時會執行on_closing
+    window.resizable(width=False, height=False)  #固定視窗大小,不能更改
     window.mainloop()
 
 
