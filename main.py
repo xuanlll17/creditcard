@@ -527,7 +527,7 @@ class Window(tk.Tk):
         data_dict = self.treeview.item(selected_item)
         data_list = data_dict["values"]
         if data_list:
-            index = self.treeview.index(selected_item)
+            #index = self.treeview.index(selected_item)
             ShowDetail(self, self.treeview["columns"], data_list, title="資訊")
 
     def display_data(self, data):
@@ -542,10 +542,10 @@ class Window(tk.Tk):
                 self.treeview.heading(col, text=col, anchor="w")
                 #設定每一欄位的屬性
                 self.treeview.column(col, anchor="w", width=100)
-
-            #將資料內容寫入treeview
-            for index, row in data.iterrows():
-                values = [row[col] for col in columns]
+            #將dataframe(data)內容轉換為list
+            data_list = data.values.tolist()
+            #將list的內容寫入treeview
+            for values in data_list:
                 self.treeview.insert("", "end", values=values)
 
 
