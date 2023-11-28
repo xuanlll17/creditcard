@@ -145,6 +145,7 @@ class Window(tk.Tk):
         )
         self.industry.grid(row=4, column=1, padx=10, pady=10)
 
+        #state="active"->按鈕可以點擊,command按鈕被點擊時呼叫self.load_treeview
         self.botton = tk.Button(
             topFrame, text="搜尋", state="active", command=self.load_treeview, width=30
         ).grid(row=5, column=0, padx=10, pady=20, columnspan=2)
@@ -180,6 +181,7 @@ class Window(tk.Tk):
         )
 
         # ------Bind------#
+        #將事件綁定方法,"<ButtonRelease-1>"->左鍵點擊/"<ButtonRelease-3>"右鍵點擊,呼叫self.selectedItem
         self.treeview.bind("<ButtonRelease-1>", self.selectedItem)
 
     # ------------treeview------------#
