@@ -553,11 +553,7 @@ class ShowDetail(Dialog):
         super().__init__(parent, **kwargs)
 
     def body(self, master):
-        self.geometry("200x260")
-        self.GetDataInfo_var = tk.StringVar()
-        mainFrame = tk.Label(
-            master, textvariable=self.GetDataInfo_var, padx=10, pady=10
-        )
+        self.geometry("200x260")  #設定dialog視窗大小
 
         try:
             for col, value in zip(self.columns, self.data):
@@ -581,12 +577,14 @@ def main():
     data.csv_to_database()
     def on_closing():
         print("window關閉")
+        #將canvas關閉
         if hasattr(window, "canvas_line_chart"):
             window.canvas_line_chart.get_tk_widget().destroy()
         if hasattr(window, "canvas_pie_chart"):
             window.canvas_pie_chart.get_tk_widget().destroy()
         if hasattr(window, "canvas_bar_chart"):
             window.canvas_bar_chart.get_tk_widget().destroy()
+        #將所有matplotlib圖表關閉
         plt.close("all")
         window.destroy()
 
