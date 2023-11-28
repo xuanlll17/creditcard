@@ -533,13 +533,17 @@ class Window(tk.Tk):
     def display_data(self, data):
         self.treeview.delete(*self.treeview.get_children())  #顯示新資料前清空treeview現有資料
 
-        if not data.empty:
-            columns = list(data.columns)
-            self.treeview["columns"] = columns
+        if not data.empty:  #檢查dataframe(data)資料是否為空
+            columns = list(data.columns)  #取得data欄位名稱,放入columns list
+            self.treeview["columns"] = columns  #設定treeview欄位名稱
+            #columns的資料一個一個取出
             for col in columns:
+                #設定treeview標題, 將取出的欄位名稱設定為heading, text=col->顯示在treeview上的文字內容, anchor->對齊方式
                 self.treeview.heading(col, text=col, anchor="w")
+                #設定每一欄位的屬性
                 self.treeview.column(col, anchor="w", width=100)
 
+            #將資料內容寫入treeview
             for index, row in data.iterrows():
                 values = [row[col] for col in columns]
                 self.treeview.insert("", "end", values=values)
@@ -556,10 +560,12 @@ class ShowDetail(Dialog):
         self.geometry("200x260")  #設定dialog視窗大小
 
         try:
+            #self.columns->欄位名稱, self.data->與欄位名稱對應的數值
+            #zip->用於將self.columns和self.data中的元素一一配對
             for col, value in zip(self.columns, self.data):
                 dataInfo = tk.Label(master, text=f"{col}:  {value}", font=("Microsoft JhengHei", 10, "bold"))
                 dataInfo.pack(pady=(6,1), anchor="nw")
-        except Exception as e:
+        except Exception as e:  #若有異常執行以下程式
             print(f"Exception in ShowDetail: {e}")
             print("Columns:", self.columns)
             print("Data:", self.data)
@@ -574,7 +580,7 @@ class ShowDetail(Dialog):
 
 
 def main():
-    data.csv_to_database()
+    #data.csv_to_database()
     def on_closing():
         print("window關閉")
         #將canvas關閉
