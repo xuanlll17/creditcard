@@ -584,8 +584,8 @@ class ShowDetail(Dialog):
 
 def main():
     def check_database():
-        path = "creditcard.db"
-        if not os.path.exists(path):
+        path = "creditcard.db"  #設定資料庫路徑
+        if not os.path.exists(path):  #如果沒有建立資料庫,就執行以下程式碼
             data.csv_to_database()
     def on_closing():
         print("window關閉")
