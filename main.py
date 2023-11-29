@@ -524,7 +524,7 @@ class Window(tk.Tk):
         self.canvas_bar_chart.draw()
 
     def selectedItem(self, event):
-        selected_item = self.treeview.focus()  #取得被選中的資料->
+        selected_item = self.treeview.focus()  #取得被選中的資料
         data_dict = self.treeview.item(selected_item)  #取得選取資料的內容,並儲存在data_dict中
         data_list = data_dict["values"]  #取出data_dict["values"]中的資料
         if data_list:  #當data_list有值,就執行以下程式碼
