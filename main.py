@@ -16,7 +16,7 @@ class Window(tk.Tk):
         self.title("信用卡消費樣態")
         self.conn = sqlite3.connect("creditcard.db")
         plt.rcParams["font.family"] = "Microsoft JhengHei"
-        style = Style("lumen")
+        style = Style("lumen")  #設定ttkbootstrap主題
 
         # ------------介面-----------#
         mainFrame = tk.Frame(self, relief=tk.GROOVE, borderwidth=1)
@@ -46,6 +46,7 @@ class Window(tk.Tk):
         # ------StringVar------#
         self.data_var = tk.StringVar()
         self.data_var.set("請選擇資料類型")
+        #將各選項對應到各自在sqlite的table名稱
         self.data_mapping = {
             "職業類別": "job",
             "年收入": "incom",
