@@ -8,6 +8,7 @@ from tkinter.simpledialog import Dialog
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import data
+import os
 
 
 class Window(tk.Tk):
@@ -582,7 +583,10 @@ class ShowDetail(Dialog):
 
 
 def main():
-    data.csv_to_database()
+    def check_database():
+        path = "creditcard.db"
+        if not os.path.exists(path):
+            data.csv_to_database()
     def on_closing():
         print("window關閉")
         #將canvas關閉
@@ -597,6 +601,7 @@ def main():
         window.destroy()
 
     window = Window()
+    check_database()
     window.protocol("WM_DELETE_WINDOW", on_closing)  #關閉視窗時會執行on_closing
     window.resizable(width=False, height=False)  #固定視窗大小,不能更改
     window.mainloop()
