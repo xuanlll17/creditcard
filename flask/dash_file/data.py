@@ -144,4 +144,4 @@ def lastest_datetime_data() -> list[tuple]:
     update_render_data()
 
     # if __name__ == "__main__":
-    main(
+    main()
