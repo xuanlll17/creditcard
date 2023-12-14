@@ -2,26 +2,25 @@ from dash import Dash, html, dash_table, callback, Input, Output, dcc
 import dash_bootstrap_components as dbc
 import pandas as pd
 from . import data
-import plotly.express as px
 
-dash = Dash(
-    requests_pathname_prefix="/dash/app/", external_stylesheets=[dbc.themes.BOOTSTRAP]
+dash1 = Dash(
+    requests_pathname_prefix="/dash/app1/", external_stylesheets=[dbc.themes.BOOTSTRAP]
 )
-dash.title = "信用卡消費樣態"
-lastest_data = data.edu_data()
+dash1.title = "信用卡消費樣態"
+lastest_data = data.age_data()
 
 
 lastest_df = pd.DataFrame(
-    lastest_data, columns=["年", "月", "地區", "產業別", "教育程度", "信用卡交易筆數", "信用卡交易金額"]
+    lastest_data, columns=["年", "月", "地區", "產業別", "年齡層", "信用卡交易筆數", "信用卡交易金額"]
 )
 
 
-dash.layout = html.Div(
+dash1.layout = html.Div(
     [
         dbc.Container(
             [
                 html.Div(
-                    [html.Div([html.H1("各教育程度信用卡消費樣態")], className="col text-center")],
+                    [html.Div([html.H1("各年齡層信用卡消費樣態")], className="col text-center")],
                     className="row",
                     style={"paddingTop": "2rem"},
                 ),
@@ -31,7 +30,7 @@ dash.layout = html.Div(
                             label="資料類別",
                             children=[
                                 dbc.DropdownMenuItem(
-                                    "年齡層", href="/dash/app1/", external_link=True
+                                    "教育程度", href="/dash/app/", external_link=True
                                 ),
                                 dbc.DropdownMenuItem(
                                     "職業類別", href="/dash/app2/", external_link=True
@@ -56,6 +55,7 @@ dash.layout = html.Div(
                                 {"label": "高雄市", "value": "高雄市"},
                                 {"label": "ALL", "value": "ALL"},
                             ],
+                            style={"width": "29%"},
                         ),
                         dcc.Dropdown(
                             id="month",
@@ -72,7 +72,7 @@ dash.layout = html.Div(
                                 {"label": "9月", "value": "9"},
                                 {"label": "ALL", "value": "ALL"},
                             ],
-
+                            style={"width": "29%"},
                         ),
                         dcc.Dropdown(
                             id="industry",
@@ -86,7 +86,7 @@ dash.layout = html.Div(
                                 {"label": "百貨", "value": "百貨"},
                                 {"label": "ALL", "value": "ALL"},
                             ],
-
+                            style={"width": "29%"},
                         ),
                         
                     ],
@@ -139,10 +139,6 @@ dash.layout = html.Div(
                         "lineHeight": "0.3rem",
                     },
                 ),
-                html.Div([
-                    html.H4('Life expentancy progression of countries per continents'),
-                    dcc.Graph(id="graph"),
-                ])
             ]
         )
     ],
@@ -150,7 +146,7 @@ dash.layout = html.Div(
 )
 
 
-@dash.callback(
+@dash1.callback(
     Output("data", "data"),
     [Input("area", "value"), Input("month", "value"), Input("industry", "value")],
 )
@@ -165,28 +161,9 @@ def update_table(selected_area, selected_month, selected_industry):
     ]
 
     update_df = pd.DataFrame(
-        filtered_data, columns=["年", "月", "地區", "產業別", "教育程度", "信用卡交易筆數", "信用卡交易金額"]
+        filtered_data, columns=["年", "月", "地區", "產業別", "年齡層", "信用卡交易筆數", "信用卡交易金額"]
     )
 
     print(update_df)
     return update_df.to_dict("records")
-
-@dash.callback(
-    Output("graph", "figure"),
-    Input("industry","value")
-)
-def update_pie_chart(selected_value):
-    global lastest_df
-    if selected_value is None or selected_value == "ALL":
-        # Group by industry and sum the transaction amounts
-        industry_sum = lastest_df.groupby('產業別')['信用卡交易金額'].sum().reset_index()
-
-        # Create a pie chart
-        fig = px.pie(industry_sum, values='信用卡交易金額', names='產業別', title='各產業別信用卡交易金額總和')
-        return fig
-    else:
-        filtered_df = lastest_df[lastest_df['產業別'] == f'{selected_value}']
-        fig = px.pie(filtered_df, values='信用卡交易金額', names='教育程度')
-        return fig
-
 
