@@ -140,7 +140,6 @@ dash.layout = html.Div(
                     },
                 ),
                 html.Div([
-                    html.H4('Life expentancy progression of countries per continents'),
                     dcc.Graph(id="graph"),
                 ])
             ]
