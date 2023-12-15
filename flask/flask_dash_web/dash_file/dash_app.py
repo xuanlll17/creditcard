@@ -41,7 +41,7 @@ dash.layout = html.Div(
                                     "職業類別", href="/dash/app2/", external_link=True
                                 ),
                                 dbc.DropdownMenuItem(
-                                    "兩性", href="/dash/app3/", external_link=True
+                                    "性別", href="/dash/app3/", external_link=True
                                 ),
                                 dbc.DropdownMenuItem(
                                     "年收入", href="/dash/app4/", external_link=True
@@ -228,9 +228,9 @@ def update_pie_chart(selected_value, selected_edu_value):
             filtered_df = lastest_df[lastest_df['產業別'] == f'{selected_value}']
             fig = px.pie(filtered_df, values='信用卡交易金額', names='教育程度')
             highlighted_edu = selected_edu_value
-            opacity_values = [1 if edu == highlighted_edu else 0.2 for edu in fig.data[0]['labels']]
+            opacity_values = [1 if edu == highlighted_edu else 0.1 for edu in fig.data[0]['labels']]
             fig.update_traces(
-                marker=dict(colors=['' + str(opacity) + '' for opacity in opacity_values]),
+                marker=dict(colors=['rgba(0,0,255,' + str(opacity) + ')' for opacity in opacity_values]),
             )
         else:
             filtered_df = lastest_df[lastest_df['產業別'] == f'{selected_value}']

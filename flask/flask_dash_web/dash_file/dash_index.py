@@ -51,7 +51,6 @@ def line_chart(graph_id):
     global lastest_df
     
     monthly_total = lastest_df.groupby(['年', '月', '性別'])['信用卡交易金額'].sum().reset_index()
-    print(monthly_total)  # Check the values in the console
 
     fig = px.line(monthly_total, x="月", y="信用卡交易金額", color="性別", markers=True)
 
