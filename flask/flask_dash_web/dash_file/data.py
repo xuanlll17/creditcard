@@ -248,7 +248,7 @@ def update_render_data() -> None:
     conn.close()
 
 
-def edu_data() -> list[tuple]:
+def search_data(dataName:str, tableName:str) -> list[tuple]:
     conn = psycopg2.connect(
         database=DATABASE,
         user=USER,
@@ -257,10 +257,7 @@ def edu_data() -> list[tuple]:
         port="5432",
     )
     cursor = conn.cursor()
-    sql = """
-        select 年, 月, 地區, 產業別, 教育程度, 信用卡交易筆數, 信用卡交易金額  
-        from edu
-    """
+    sql = f"select 年, 月, 地區, 產業別, {dataName}, 信用卡交易筆數, 信用卡交易金額 from {tableName}"
     cursor.execute(sql)
     rows = cursor.fetchall()
     cursor.close()
@@ -268,96 +265,13 @@ def edu_data() -> list[tuple]:
 
     return rows
 
-
-def age_data() -> list[tuple]:
-    conn = psycopg2.connect(
-        database=DATABASE,
-        user=USER,
-        password=PASSWORD,
-        host=HOST,
-        port="5432",
-    )
-    cursor = conn.cursor()
-    sql = """
-        select 年, 月, 地區, 產業別, 年齡層, 信用卡交易筆數, 信用卡交易金額  
-        from age
-    """
-    cursor.execute(sql)
-    rows = cursor.fetchall()
-    cursor.close()
-    conn.close()
-
-    return rows
-
-
-def job_data() -> list[tuple]:
-    conn = psycopg2.connect(
-        database=DATABASE,
-        user=USER,
-        password=PASSWORD,
-        host=HOST,
-        port="5432",
-    )
-    cursor = conn.cursor()
-    sql = """
-        select 年, 月, 地區, 產業別, 職業類別, 信用卡交易筆數, 信用卡交易金額  
-        from job
-    """
-    cursor.execute(sql)
-    rows = cursor.fetchall()
-    cursor.close()
-    conn.close()
-
-    return rows
-
-
-def sex_data() -> list[tuple]:
-    conn = psycopg2.connect(
-        database=DATABASE,
-        user=USER,
-        password=PASSWORD,
-        host=HOST,
-        port="5432",
-    )
-    cursor = conn.cursor()
-    sql = """
-        select 年, 月, 地區, 產業別, 性別, 信用卡交易筆數, 信用卡交易金額  
-        from sex
-    """
-    cursor.execute(sql)
-    rows = cursor.fetchall()
-    cursor.close()
-    conn.close()
-
-    return rows
-
-
-def incom_data() -> list[tuple]:
-    conn = psycopg2.connect(
-        database=DATABASE,
-        user=USER,
-        password=PASSWORD,
-        host=HOST,
-        port="5432",
-    )
-    cursor = conn.cursor()
-    sql = """
-        select 年, 月, 地區, 產業別, 年收入, 信用卡交易筆數, 信用卡交易金額  
-        from incom
-    """
-    cursor.execute(sql)
-    rows = cursor.fetchall()
-    cursor.close()
-    conn.close()
-
-    return rows
 
 
 #def main():
-    __download_creditcard_data()
-    trans_data()
-    update_render_data()
+    #__download_creditcard_data()
+    #trans_data()
+    #update_render_data()
 
 
 #if __name__ == "__main__":
-    main()
+    #main()
