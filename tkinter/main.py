@@ -7,7 +7,7 @@ import sqlite3
 from tkinter.simpledialog import Dialog
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import data
+import tkinter.data as data
 import os
 
 
