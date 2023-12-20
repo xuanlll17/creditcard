@@ -268,10 +268,10 @@ def search_data(dataName:str, tableName:str) -> list[tuple]:
 
 
 #def main():
-    #__download_creditcard_data()
-    #trans_data()
-    #update_render_data()
+    __download_creditcard_data()
+    trans_data()
+    update_render_data()
 
 
 #if __name__ == "__main__":
-    #main()
+    main()
