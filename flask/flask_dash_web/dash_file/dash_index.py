@@ -7,7 +7,7 @@ import plotly.express as px
 dash_index = Dash(
     requests_pathname_prefix="/dash/index/", external_stylesheets=[dbc.themes.QUARTZ]
 )
-dash_index.title = "信用卡消費樣態"
+dash_index.title = "2023信用卡消費樣態"
 lastest_data = data.search_data(dataName="年齡層",tableName="age")
 lastest_df = pd.DataFrame(
     lastest_data, columns=["年", "月", "地區", "產業別", "年齡層", "信用卡交易筆數", "信用卡交易金額"]
