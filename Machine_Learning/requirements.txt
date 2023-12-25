@@ -2,7 +2,6 @@ requests
 pandas
 numpy
 matplotlib
-ttkbootstrap
 seaborn
 scikit-learn
 flask
