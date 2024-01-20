@@ -7,4 +7,4 @@
 ![Dash](./flask/image/信用卡消費樣態.png)
 
 ### [機器學習 Machine-Learning](./Machine_Learning/README.md)
-![ML](./flask/image/機器學習.png)
+![ML](./Machine_Learning/images/機器學習.png)
