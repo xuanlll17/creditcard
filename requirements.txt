@@ -11,3 +11,4 @@ gunicorn
 dash-bootstrap-components
 psycopg2-binary
 nbformat
+pyinstaller
