@@ -65,7 +65,6 @@ def __download_credit_data() -> csv:
     }
     industry = ["FD", "CT", "LG", "TR", "EE", "DP", "X2", "OT", " IDSUM", "ALL"]
     DataType = ["sex", "job", "incom", "education", "age"]
-    sex = ["M", "F"]
     sex_code = {"1": "男性", "2": "女性"}
 
     #---兩性消費---#
@@ -116,19 +115,18 @@ def __download_credit_data() -> csv:
                 file.write(response_education.content)
     print("教育程度資料讀取成功")
 
-    #---兩性X各年齡層消費---#
+    #---各年齡層消費---#
     for A in industry:
         for B in area:
-            for C in sex:
-                age_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C11/GenderAgeGroup/{B}/{A}/{C}"
-                response_age = requests.request("GET", age_url)
-                if len(response_age.text) == 0:
-                    continue
-                folder_path = "./datasource/age/"
-                file_name = f"age{B}_{A}_{C}.csv"
-                file_path = os.path.join(folder_path, file_name)
-                with open(file_path, "wb") as file:
-                    file.write(response_age.content)
+            age_url = f"https://bas.nccc.com.tw/nccc-nop/OpenAPI/C02/ageconsumption/{B}/{A}"
+            response_age = requests.request("GET", age_url)
+            if len(response_age.text) == 0:
+                continue
+            folder_path = "./datasource/age/"
+            file_name = f"age{B}_{A}.csv"
+            file_path = os.path.join(folder_path, file_name)
+            with open(file_path, "wb") as file:
+                file.write(response_age.content)
     print("年齡層消費資料讀取成功")
 
     # ---------合併csv---------#

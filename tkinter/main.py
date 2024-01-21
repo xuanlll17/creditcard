@@ -196,10 +196,7 @@ class Window(tk.Tk):
         table = self.data_mapping.get(selected_option)
 
         if table and selected_option and selected_year != "請選擇年份":
-            if selected_option == "年齡層":
-                sql = f"SELECT 年,月,地區,產業別,年齡層,信用卡交易筆數,信用卡金額 FROM {table} WHERE 年 = '{selected_year}'"
-            else:
-                sql = f"SELECT * FROM {table} WHERE 年 = '{selected_year}'"
+            sql = f"SELECT * FROM {table} WHERE 年 = '{selected_year}'"
 
             if selected_month and selected_month != "請選擇月份" and selected_month != "ALL":
                 sql += f" AND 月 = '{selected_month}'"
