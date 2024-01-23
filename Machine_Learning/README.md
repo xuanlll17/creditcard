@@ -1,6 +1,5 @@
-# 信用卡消費樣態
+# 2014-2023信用卡消費樣態
 ![機器學習](./images/機器學習.png)
-###### 連結：[2014-2023信用卡消費樣態](https://dash-ml-knot.onrender.com)
 
 ## Dash
 ![完整畫面](./images/dash.png)
@@ -54,9 +53,12 @@
 ![模型](./images/模型.png)
 
 
-# 專題目的
+## 專題目的：
 感於近年來受疫情影響，國人消費形態及支付方式改變，網路交易及外送盛行，希望藉由國人消費様態分析作為發卡及收單機構推廣特約商店及行銷推廣之參考，並預估下月份之信用卡消費金額。
-# 資料說明
+## 專題網址：
+GitHub：https://github.com/xuanlll17/creditcard/blob/main/Machine_Learning/README.md
+網頁：https://dash-ml-knot.onrender.com
+## 資料說明：
 1. 資料來源：聯合信用卡處理中心 OPEN API
 2. 資料範圍：2014年1月 - 2023年9月
 3. 程式集：main_ML.py、dash_ML.py、dataview.ipynb
