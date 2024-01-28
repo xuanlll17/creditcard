@@ -41,4 +41,4 @@ https://github.com/xuanlll17/creditcard/blob/main/tkinter/README.md
 
 
 ## 初始畫面
-![信用卡消費樣態](./images/搜尋欄.png) &nbsp; &nbsp; ![說明欄](./images/說明欄.png)
+![信用卡消費樣態](./images/搜尋欄.png)![說明欄](./images/說明欄.png)
