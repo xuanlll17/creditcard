@@ -1,6 +1,15 @@
 # 信用卡消費樣態
 ![信用卡消費樣態](./images/信用卡消費樣態.png)
 
+## 專題目的：
+依性別、職業、年齡層、教育程度及年收入等多方面因素進行分析，透過資料視覺化呈現消費者使用信用卡的消費習慣性與趨勢。
+## 專案網址：  
+https://github.com/xuanlll17/creditcard/blob/main/tkinter/README.md
+## 資料說明：
+1. 資料來源：聯合信用卡處理中心Open API
+2. 資料範圍：2014年1月－2023年10月
+3. 程式：main.py、data.py
+
 ## 初始畫面
 ![信用卡消費樣態](./images/搜尋欄.png)
 
@@ -28,17 +37,3 @@
 ![信用卡消費樣態](./images/完整畫面.png)
 ### 二、
 ![信用卡消費樣態](./images/Dialog.png)
-
-
-## 專題目的：
-依性別、職業、年齡層、教育程度及年收入等多方面因素進行分析，透過資料視覺化呈現消費者使用信用卡的消費習慣性與趨勢。
-## 專案網址：  
-https://github.com/xuanlll17/creditcard/blob/main/tkinter/README.md
-## 資料說明：
-1. 資料來源：聯合信用卡處理中心Open API
-2. 資料範圍：2014年1月－2023年10月
-3. 程式：main.py、data.py
-
-
-## 初始畫面
-![信用卡消費樣態](./images/搜尋欄.png)![說明欄](./images/說明欄.png)
