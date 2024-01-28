@@ -39,3 +39,6 @@ https://github.com/xuanlll17/creditcard/blob/main/tkinter/README.md
 2. 資料範圍：2014年1月－2023年10月
 3. 程式：main.py、data.py
 
+
+## 初始畫面
+![信用卡消費樣態](./images/搜尋欄.png) &nbsp; &nbsp; ![說明欄](./images/說明欄.png)
