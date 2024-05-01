@@ -1,6 +1,20 @@
 # 2023信用卡消費樣態
 ![信用卡消費樣態](./image/信用卡消費樣態.png)
 
+## 專題目的：
+依性別、職業、年齡層、教育程度及年收入等多方面因素進行分析，透過資料視覺化呈現消費者使用信用卡的消費習慣性與趨勢。
+
+## 專案網址：
+GitHub：https://github.com/xuanlll17/creditcard/blob/main/flask/README.md  
+網站：https://dash-web-hm7h.onrender.com (需等待20秒左右)
+
+## 資料說明：
+1. 資料來源：  
+    - data：聯合信用卡處理中心Open API
+    - icon：Image by [toffeomurice](https://pixabay.com/users/toffeomurice-3735734/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2761073) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2761073)
+
+2. 資料範圍：2023年1月－2023年12月
+
 ## Dash
 ### 以教育程度為例
 ![教育程度](./image/dash.png)
@@ -37,16 +51,3 @@
 4. 長條圖：各地區信用卡交易金額  
     圖表與地區連動，選擇地區，則該地區會亮起，可查看該地區信用卡的消費金額。
     ![長條圖](./image/長條圖.png)
-
-
-## 專題目的：
-依性別、職業、年齡層、教育程度及年收入等多方面因素進行分析，透過資料視覺化呈現消費者使用信用卡的消費習慣性與趨勢。
-## 專案網址：
-GitHub：https://github.com/xuanlll17/creditcard/blob/main/flask/README.md  
-網站：https://dash-web-hm7h.onrender.com
-## 資料說明：
-1. 資料來源：  
-    - data：聯合信用卡處理中心Open API
-    - icon：Image by [toffeomurice](https://pixabay.com/users/toffeomurice-3735734/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2761073) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2761073)
-
-2. 資料範圍：2023年1月－2023年10月

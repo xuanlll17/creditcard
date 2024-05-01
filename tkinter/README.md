@@ -9,7 +9,7 @@ https://github.com/xuanlll17/creditcard/blob/main/tkinter/README.md
 
 ## 資料說明：
 1. 資料來源：聯合信用卡處理中心Open API
-2. 資料範圍：2014年1月－2023年10月
+2. 資料範圍：2014年1月－2023年12月
 3. 程式：main.py、data.py
 
 ## 初始畫面
