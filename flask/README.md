@@ -25,9 +25,10 @@ GitHub：https://github.com/xuanlll17/creditcard/blob/main/flask/README.md
 ![首頁](./image/首頁.png)  
 
 依不同需求，選擇相應資料：
+![說明](./image/說明.png)
 1. 資料類別 [連結到Dash]：職業類別 | 年收入 | 教育程度類別 | 性別 | 年齡層
 
-2. 月份 [目前資料更新至9月]：1－10月 | ALL
+2. 月份：1－12月 | ALL
 
 3. 地區 [六都]：臺北市 | 新北市 | 桃園市 | 臺中市 | 臺南市 | 高雄市 | ALL
 
