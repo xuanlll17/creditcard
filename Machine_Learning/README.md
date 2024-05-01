@@ -18,11 +18,7 @@ GitHub：https://github.com/xuanlll17/creditcard/blob/main/Machine_Learning/READ
 
 ## 說明
 依不同需求，選擇相應資料：
-1. 地區 [六都]：臺北市 | 新北市 | 桃園市 | 臺中市 | 臺南市 | 高雄市 | ALL
-
-2. 產業別：食 | 衣 | 住 | 行 | 文教康樂 | 百貨 | ALL
-
-3. 年齡層：未滿20歲－80歲以上 [以五歲為間距]
+![說明](./images/說明.png)
 
 圖表說明：  
 一、長條圖及折線圖 [圖表會隨著篩選按鈕變化而變化]  
