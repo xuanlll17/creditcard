@@ -7,13 +7,19 @@ from plotly.subplots import make_subplots
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures, MinMaxScaler
 from sklearn.metrics import r2_score, mean_squared_error
+import os
 
 
 dash_ML = Dash(
     requests_pathname_prefix="/dash/ML/", external_stylesheets=[dbc.themes.SANDSTONE]
 )
 dash_ML.title = "2014-2023信用卡消費樣態"
-dataset = pd.read_csv("processed_dataset.csv")
+
+# 取得目前檔案所在資料夾的路徑
+BASE_DIR = os.path.dirname(__file__)
+csv_path = os.path.join(BASE_DIR, "processed_dataset.csv")
+dataset = pd.read_csv(csv_path)
+
 df = pd.DataFrame(dataset)
 
 dash_ML.layout = html.Div(
